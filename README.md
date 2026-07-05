@@ -1,12 +1,31 @@
 # Junk Cleaner
 
-Простой бесплатный чистильщик мусора для Windows. Удаляет только безопасные временные файлы и кэши — системные файлы и личные документы не трогает.
+[![Release](https://img.shields.io/github/v/release/EgorKru/junk-cleaner?label=download&style=for-the-badge)](https://github.com/EgorKru/junk-cleaner/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/EgorKru/junk-cleaner/total?style=for-the-badge)](https://github.com/EgorKru/junk-cleaner/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+
+**Бесплатный чистильщик мусора для Windows.** Удаляет временные файлы, кэши браузеров и корзину. Системные файлы и личные документы не трогает.
+
+<p align="center">
+  <a href="https://github.com/EgorKru/junk-cleaner/releases/latest/download/JunkCleaner-1.0.2-windows.exe"><strong>⬇ Скачать для Windows (бесплатно)</strong></a>
+</p>
+
+<p align="center">
+  <a href="https://egorkru.github.io/junk-cleaner/">Сайт проекта</a> ·
+  <a href="https://github.com/EgorKru/junk-cleaner/issues/new?template=feedback.yml">Оставить отзыв</a>
+</p>
+
+![Junk Cleaner](docs/screenshots/main-window.png)
 
 ## Скачать
 
-**[JunkCleaner-1.0.0-windows.exe](https://github.com/EgorKru/junk-cleaner/releases/download/v1.0.0/JunkCleaner-1.0.0-windows.exe)**
+| Версия | Ссылка |
+|--------|--------|
+| **Последняя (рекомендуется)** | [JunkCleaner-1.0.2-windows.exe](https://github.com/EgorKru/junk-cleaner/releases/download/v1.0.2/JunkCleaner-1.0.2-windows.exe) |
+| Страница релизов | [GitHub Releases](https://github.com/EgorKru/junk-cleaner/releases) |
+| Сайт | [egorkru.github.io/junk-cleaner](https://egorkru.github.io/junk-cleaner/) |
 
-Страница проекта: https://egorkru.github.io/junk-cleaner/
+**Как установить:** скачайте `.exe` и запустите. Установка не нужна.
 
 ## Что чистит
 
@@ -27,16 +46,6 @@
 - `Windows\System32` и системные компоненты
 - Пароли и закладки браузеров
 
-## Как пользоваться
-
-1. Скачайте `JunkCleaner-1.0.0-windows.exe`.
-2. Запустите двойным кликом.
-3. Дождитесь сканирования.
-4. Отметьте нужные категории.
-5. Нажмите **«Очистить выбранное»**.
-
-Для системных категорий нажмите **«Запустить как администратор»**.
-
 ## Безопасность
 
 - Не собирает личные данные
@@ -48,20 +57,24 @@
 ## Проверка файла (SHA256)
 
 ```
-C53CED11FCD162F487C381735AF622A8CD3641485FC79580127F4D852BB0FF03
+0C23778495964A997F3D4DA96F55E3200A2FCDEFFFB4E95BD880FCC3F1B44850
 ```
-
-Проверка в PowerShell:
 
 ```powershell
-Get-FileHash .\JunkCleaner-1.0.0-windows.exe -Algorithm SHA256
+Get-FileHash .\JunkCleaner-1.0.2-windows.exe -Algorithm SHA256
 ```
+
+## English
+
+**Junk Cleaner** is a free, lightweight Windows utility that safely removes temporary files, browser caches, thumbnails, crash dumps, and recycle bin contents. No installer required — just download and run.
+
+[Download latest release](https://github.com/EgorKru/junk-cleaner/releases/latest/download/JunkCleaner-1.0.2-windows.exe)
 
 ## Сборка из исходников
 
 ```bat
-py -m pip install pyinstaller
-py -m PyInstaller --noconfirm --onefile --windowed --name JunkCleaner cleaner.py
+py -m pip install pyinstaller pillow
+py -m PyInstaller --noconfirm --onefile --windowed --name JunkCleaner --icon assets\junk-cleaner.ico --add-data "assets\junk-cleaner.ico;assets" cleaner.py
 ```
 
 ## Лицензия

@@ -4,103 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Junk Cleaner — бесплатный чистильщик для Windows</title>
-  <meta name="description" content="Бесплатный чистильщик мусора для Windows. Удаляет временные файлы, кэши браузеров и корзину. Безопасно для системы.">
+  <meta name="description" content="Скачайте Junk Cleaner бесплатно. Безопасная очистка временных файлов, кэшей браузеров и корзины на Windows 10/11. Без установки.">
+  <meta name="keywords" content="junk cleaner, чистильщик windows, очистка диска, temp files, ccleaner alternative, бесплатно">
+  <meta property="og:title" content="Junk Cleaner — бесплатный чистильщик для Windows">
+  <meta property="og:description" content="Удаляет временные файлы и кэши. Безопасно для системы. Скачать бесплатно.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://egorkru.github.io/junk-cleaner/">
+  <meta property="og:image" content="https://egorkru.github.io/junk-cleaner/screenshots/main-window.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://egorkru.github.io/junk-cleaner/">
   <style>
     :root {
-      --bg: #f5f7fb;
-      --card: #ffffff;
-      --text: #111827;
-      --muted: #6b7280;
-      --accent: #2563eb;
-      --accent-dark: #1d4ed8;
-      --border: #e5e7eb;
-      --success: #16a34a;
+      --bg: #f5f7fb; --card: #ffffff; --text: #111827; --muted: #6b7280;
+      --accent: #2563eb; --border: #e5e7eb; --success: #16a34a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    body { font-family: "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
     .wrap { max-width: 960px; margin: 0 auto; padding: 32px 20px 64px; }
-    .hero {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: white;
-      border-radius: 20px;
-      padding: 40px 36px;
-      margin-bottom: 28px;
-    }
+    .hero { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; border-radius: 20px; padding: 40px 36px; margin-bottom: 28px; }
     .hero h1 { font-size: 2.4rem; margin-bottom: 10px; }
     .hero p { color: #dbeafe; max-width: 620px; }
-    .btn {
-      display: inline-block;
-      margin-top: 22px;
-      background: white;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-      padding: 14px 24px;
-      border-radius: 12px;
-    }
-    .btn:hover { background: #eff6ff; }
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .btn { display: inline-block; background: white; color: var(--accent); text-decoration: none; font-weight: 700; padding: 14px 24px; border-radius: 12px; }
+    .btn.secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.35); }
+    .btn:hover { filter: brightness(0.97); }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-    }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
     .card h2 { font-size: 1.1rem; margin-bottom: 12px; }
     ul { padding-left: 18px; color: var(--muted); }
     li { margin-bottom: 6px; }
-    .shot {
-      margin: 28px 0;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
-    }
+    .shot { margin: 28px 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 12px 30px rgba(17,24,39,0.08); }
     .shot img { width: 100%; display: block; }
-    .hash {
-      font-family: Consolas, monospace;
-      font-size: 0.85rem;
-      word-break: break-all;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px;
-      color: #334155;
-    }
-    .badge {
-      display: inline-block;
-      background: #ecfdf5;
-      color: var(--success);
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+    .hash { font-family: Consolas, monospace; font-size: 0.85rem; word-break: break-all; background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; color: #334155; }
+    .badge { display: inline-block; background: #ecfdf5; color: var(--success); padding: 4px 10px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; }
     .footer { margin-top: 28px; color: var(--muted); font-size: 0.92rem; }
-    @media (max-width: 720px) {
-      .grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 1.9rem; }
-    }
+    .links a { color: var(--accent); }
+    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } .hero h1 { font-size: 1.9rem; } }
   </style>
 </head>
 <body>
   <div class="wrap">
     <section class="hero">
-      <span class="badge">Бесплатно · Windows 10/11</span>
+      <span class="badge">Бесплатно · Windows 10/11 · Без установки</span>
       <h1>Junk Cleaner</h1>
       <p>
         Простой чистильщик мусора для Windows. Удаляет временные файлы, кэши браузеров,
         корзину и другой безопасный мусор. Системные файлы и личные документы не трогает.
       </p>
-      <a class="btn" href="https://github.com/EgorKru/junk-cleaner/releases/download/v1.0.2/JunkCleaner-1.0.2-windows.exe">
-        Скачать для Windows (11 МБ)
-      </a>
+      <div class="btns">
+        <a class="btn" href="https://github.com/EgorKru/junk-cleaner/releases/download/v1.0.2/JunkCleaner-1.0.2-windows.exe">Скачать .exe (11 МБ)</a>
+        <a class="btn secondary" href="https://github.com/EgorKru/junk-cleaner">GitHub</a>
+        <a class="btn secondary" href="https://github.com/EgorKru/junk-cleaner/releases/latest">Все версии</a>
+      </div>
     </section>
 
     <div class="shot">
@@ -121,7 +76,6 @@
           <li>Кэш DNS</li>
         </ul>
       </section>
-
       <section class="card">
         <h2>Что не трогает</h2>
         <ul>
@@ -131,7 +85,6 @@
           <li>Пароли и закладки браузеров</li>
         </ul>
       </section>
-
       <section class="card">
         <h2>Безопасность</h2>
         <ul>
@@ -142,7 +95,6 @@
           <li>Занятые файлы пропускаются</li>
         </ul>
       </section>
-
       <section class="card">
         <h2>Как пользоваться</h2>
         <ul>
@@ -156,17 +108,25 @@
     </div>
 
     <section class="card" style="margin-top: 18px;">
-      <h2>Проверка файла (SHA256)</h2>
-      <p style="color: var(--muted); margin-bottom: 10px;">Сверьте хэш после скачивания:</p>
-      <div class="hash">0C23778495964A997F3D4DA96F55E3200A2FCDEFFFB4E95BD880FCC3F1B44850</div>
-      <p style="margin-top: 12px; color: var(--muted); font-size: 0.92rem;">
-        Исходный код и релизы:
-        <a href="https://github.com/EgorKru/junk-cleaner">github.com/EgorKru/junk-cleaner</a>
+      <h2>English</h2>
+      <p style="color: var(--muted);">
+        <strong>Junk Cleaner</strong> is a free portable Windows utility for safe cleanup of temp files,
+        browser caches, thumbnails, and recycle bin. No installer, no ads, open source.
+      </p>
+      <p class="links" style="margin-top: 10px;">
+        <a href="https://github.com/EgorKru/junk-cleaner/releases/download/v1.0.2/JunkCleaner-1.0.2-windows.exe">Download for Windows</a>
       </p>
     </section>
 
+    <section class="card" style="margin-top: 18px;">
+      <h2>Проверка файла (SHA256)</h2>
+      <p style="color: var(--muted); margin-bottom: 10px;">Сверьте хэш после скачивания:</p>
+      <div class="hash">0C23778495964A997F3D4DA96F55E3200A2FCDEFFFB4E95BD880FCC3F1B44850</div>
+    </section>
+
     <p class="footer">
-        Версия 1.0.2 · MIT License · Перед очисткой кэша браузеров закройте браузер.
+      Версия 1.0.2 · MIT License ·
+      <a href="https://github.com/EgorKru/junk-cleaner/issues/new?template=feedback.yml">Оставить отзыв</a>
     </p>
   </div>
 </body>
