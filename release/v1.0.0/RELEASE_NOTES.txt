@@ -1,0 +1,3 @@
+RELEASE_URL=https://github.com/EgorKru/junk-cleaner/releases/download/v1.0.0/JunkCleaner-1.0.0-windows.exe
+SITE_URL=https://egorkru.github.io/junk-cleaner/
+SHA256=450D9557EDDEB34B2CA79665E96A863E4136A69879DF0519EE8BA93BAD35B774
