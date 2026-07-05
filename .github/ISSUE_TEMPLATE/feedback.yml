@@ -1,0 +1,48 @@
+name: Обратная связь
+description: Отзыв о тестировании Junk Cleaner
+title: "[Feedback] "
+labels: ["feedback"]
+body:
+  - type: dropdown
+    id: os
+    attributes:
+      label: Операционная система
+      options:
+        - Windows 10
+        - Windows 11
+        - Другое
+    validations:
+      required: true
+  - type: dropdown
+    id: launch
+    attributes:
+      label: Программа запустилась?
+      options:
+        - Да
+        - Нет
+    validations:
+      required: true
+  - type: dropdown
+    id: clarity
+    attributes:
+      label: Интерфейс понятен?
+      options:
+        - Да
+        - Частично
+        - Нет
+    validations:
+      required: true
+  - type: textarea
+    id: errors
+    attributes:
+      label: Ошибки или странное поведение
+      placeholder: Опишите, если что-то пошло не так
+  - type: textarea
+    id: features
+    attributes:
+      label: Что добавить или улучшить?
+  - type: input
+    id: rating
+    attributes:
+      label: Оценка 1-10
+      placeholder: "8"
