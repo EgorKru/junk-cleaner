@@ -18,7 +18,15 @@ ACCENT = "#2563eb"
 ACCENT_DARK = "#1d4ed8"
 DISABLED = "#cbd5e1"
 
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.0.1"
+
+
+def app_icon_path() -> str:
+    if getattr(sys, "frozen", False):
+        base = getattr(sys, "_MEIPASS", os.path.dirname(sys.executable))
+    else:
+        base = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(base, "assets", "junk-cleaner.ico")
 
 
 def human_size(num_bytes: float) -> str:
@@ -358,6 +366,13 @@ class CleanerApp(tk.Tk):
         self.geometry("760x720")
         self.minsize(680, 620)
         self.configure(bg=BG)
+
+        icon_path = app_icon_path()
+        if os.path.isfile(icon_path):
+            try:
+                self.iconbitmap(default=icon_path)
+            except tk.TclError:
+                pass
 
         self.categories = build_categories()
         self.cards = {}
